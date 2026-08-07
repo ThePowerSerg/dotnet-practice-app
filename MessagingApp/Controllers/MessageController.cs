@@ -13,8 +13,9 @@ namespace MessagingApp.Controllers
 
         public void Send()
         {
-            string message = _messageService.GetMessage();
-            Console.WriteLine(message);
+            _messageService.Message = "Keep it flexible with DI!";
+
+            _messageService.SendMessage();
         }   
     }
 }

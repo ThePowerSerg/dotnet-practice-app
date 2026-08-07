@@ -2,9 +2,11 @@ namespace MessagingApp.Services
 {
     public class EmailService : IMessageService
     {
-        public string GetMessage()
+        public required string Message { get; set; }
+
+        public void SendMessage()
         {
-            return "Hello from the Email Service!";
+            Console.WriteLine(Message);
         }
     }
 }

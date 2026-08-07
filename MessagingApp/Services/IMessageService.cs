@@ -2,6 +2,7 @@ namespace MessagingApp.Services
 {
     public interface IMessageService
     {
-        string GetMessage();
+        public string Message { get; set; }
+        void SendMessage();
     }
 }
