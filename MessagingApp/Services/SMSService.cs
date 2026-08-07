@@ -6,7 +6,7 @@ namespace MessagingApp.Services
     {
         public void SendSMS(UserProfile user, string message)
         {
-            Console.WriteLine($"SMS sent to: {user.PhoneNumber}: {message} " ?? "No Phone Number found");
+            Console.WriteLine($"SMS sent to: {user.PhoneNumber ?? "No Phone Number found"}: {message}");
         }
     }
 }
