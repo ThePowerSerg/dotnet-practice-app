@@ -6,10 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 // 1. Set up the DI container
 var services = new ServiceCollection();
 
-// Register the low-level transports each service depends on
-services.AddTransient<IEmailSender, SmtpEmailSender>();
-services.AddTransient<ISmsGateway, TwilioSmsGateway>();
-
 // Register the interface and its implementation
 // (flip this line to SMSService and nothing else needs to change)
 services.AddTransient<IMessageService, EmailService>();
