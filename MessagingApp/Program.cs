@@ -1,4 +1,5 @@
 ﻿using MessagingApp.Controllers;
+using MessagingApp.Models;
 using MessagingApp.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,4 +16,13 @@ var serviceProvider = services.BuildServiceProvider();
 
 // 2. Resolve and run
 var manager = serviceProvider.GetRequiredService<MessageController>();
-manager.Send(); // Output: Hello from the Email Service!
+
+var recipient = new UserProfile
+{
+    Id = 1,
+    UserName = "sferreira",
+    Email = "sergferreira81@gmail.com",
+    PhoneNumber = "+15555555555"
+};
+
+manager.Send(recipient, "Keep it flexible with DI!"); // Output: Emailing sergferreira81@gmail.com: Keep it flexible with DI!

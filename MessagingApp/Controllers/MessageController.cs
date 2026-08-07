@@ -1,3 +1,4 @@
+using MessagingApp.Models;
 using MessagingApp.Services;
 
 namespace MessagingApp.Controllers
@@ -11,11 +12,9 @@ namespace MessagingApp.Controllers
             _messageService = messageService;
          }
 
-        public void Send()
+        public void Send(UserProfile recipient, string message)
         {
-            _messageService.Message = "Keep it flexible with DI!";
-
-            _messageService.SendMessage();
-        }   
+            _messageService.SendMessage(recipient, message);
+        }
     }
 }
