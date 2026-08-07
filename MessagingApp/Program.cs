@@ -7,14 +7,13 @@ using Microsoft.Extensions.DependencyInjection;
 var services = new ServiceCollection();
 
 // Register the interface and its implementation
-// (flip this line to SMSService and nothing else needs to change)
 services.AddTransient<IMessageService, EmailService>();
 
 // Register the consumer class
 services.AddTransient<MessageController>();
-var serviceProvider = services.BuildServiceProvider();
 
 // 2. Resolve and run
+var serviceProvider = services.BuildServiceProvider();
 var manager = serviceProvider.GetRequiredService<MessageController>();
 
 var recipient = new UserProfile
