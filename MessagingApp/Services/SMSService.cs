@@ -2,11 +2,11 @@ using MessagingApp.Models;
 
 namespace MessagingApp.Services
 {
-    public class SMSService : IMessageService
+    public class SMSService : ISMSService
     {
-        public void SendMessage(UserProfile recipient, string message)
+        public void SendSMS(UserProfile user, string message)
         {
-            // Twilio send message to recipient.PhoneNumber
+            Console.WriteLine($"SMS sent to: {user.PhoneNumber}: {message} " ?? "No Phone Number found");
         }
     }
 }

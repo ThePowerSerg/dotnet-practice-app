@@ -2,11 +2,13 @@ using MessagingApp.Models;
 
 namespace MessagingApp.Services
 {
-    public class EmailService : IMessageService
+    // Defines how the email is going to be sent
+    public class EmailService : IEmailService
     {
-        public void SendMessage(UserProfile recipient, string message)
+        // Implements the SendMessage method
+        public void SendEmail(UserProfile user, string message)
         {
-            Console.WriteLine($"Emailing {recipient.Email}: {message}");
+            Console.WriteLine($"Email sent to {user.Email}: {message}");
         }
     }
 }
