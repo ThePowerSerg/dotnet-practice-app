@@ -1,6 +1,6 @@
 ﻿using MessagingApp.Controllers;
-using MessagingApp.Models;
 using MessagingApp.Services;
+using MessagingApp.Views;
 using Microsoft.Extensions.DependencyInjection;
 
 // 1. Set up the DI container
@@ -13,20 +13,12 @@ services.AddTransient<ISMSService, SMSService>();
 // Register the consumer class
 services.AddTransient<MessageController>();
 
+// Register the app runner
+services.AddTransient<RunApp>();
+
 // 2. Resolve and run
 var serviceProvider = services.BuildServiceProvider();
-var controller = serviceProvider.GetRequiredService<MessageController>();
+var app = serviceProvider.GetRequiredService<RunApp>();
 
-
-// Move data to respective folder
-var user = new UserProfile
-{
-    Id = 1,
-    UserName = "sferreira",
-    Email = "sergferreira81@gmail.com",
-    PhoneNumber = "(781) 733-2393"
-};
-
-// Run the app from dedicate class
-controller.SendEmail(user, "Keep it flexible and DI via Email!");
-controller.SendSMS(user, "Keep it flexible and DI via SMS");
+// 3. Run the app
+app.Run();
