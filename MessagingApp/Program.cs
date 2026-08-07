@@ -17,6 +17,8 @@ services.AddTransient<MessageController>();
 var serviceProvider = services.BuildServiceProvider();
 var controller = serviceProvider.GetRequiredService<MessageController>();
 
+
+// Move data to respective folder
 var user = new UserProfile
 {
     Id = 1,
@@ -25,5 +27,6 @@ var user = new UserProfile
     PhoneNumber = "(781) 733-2393"
 };
 
+// Run the app from dedicate class
 controller.SendEmail(user, "Keep it flexible and DI via Email!");
 controller.SendSMS(user, "Keep it flexible and DI via SMS");
