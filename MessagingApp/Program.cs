@@ -16,7 +16,6 @@ services.AddTransient<IMessageService, EmailService>();
 
 // Register the consumer class
 services.AddTransient<MessageController>();
-
 var serviceProvider = services.BuildServiceProvider();
 
 // 2. Resolve and run
@@ -30,4 +29,4 @@ var recipient = new UserProfile
     PhoneNumber = "+15555555555"
 };
 
-manager.Send(recipient, "Keep it flexible with DI!"); // Output: Emailing sergferreira81@gmail.com: Keep it flexible with DI!
+manager.Send(recipient, "Keep it flexible and DI!"); // Output: Emailing sergferreira81@gmail.com: Keep it flexible with DI!
