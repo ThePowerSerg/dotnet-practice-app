@@ -14,10 +14,25 @@ namespace MessagingApp.Views
 
         public void Run()
         {
-            
+            var userProfiles = new List<UserProfile>()
+            {
+                new() {
+                    Id = 1,
+                    UserName = "sergferreira81",
+                    Email = "sergferreira81@gmail.com",
+                    PhoneNumber = "7817332393"
+                },
+                new() { 
+                    Id = 2,
+                    UserName = "sergiof810",
+                    Email = "sergiof810@outlook.com",
+                    PhoneNumber = "7817332393"}
+            };
 
-            //controller.SendEmail(user, "Keep it flexible and DI via Email!");
-            //controller.SendSMS(user, "Keep it flexible and DI via SMS");
+            var user = userProfiles.Find(x => x.Id == 1);
+
+            controller.SendEmail(user, "Keep it flexible and DI via Email!");
+            controller.SendSMS(user, "Keep it flexible and DI via SMS");
         }
 
         /*

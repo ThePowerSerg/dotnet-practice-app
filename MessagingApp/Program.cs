@@ -8,8 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
 // 1. Set up the DI container
-var services = new ServiceCollection();
-
 var builder = Host.CreateApplicationBuilder(args);
 
 var connectionString =
@@ -17,22 +15,21 @@ var connectionString =
         ?? throw new InvalidOperationException("Connection string"
         + "'DefaultConnection' not found.");
 
-services.AddDbContext<MessagingAppContext>(options =>
+builder.Services.AddDbContext<MessagingAppContext>(options =>
     options.UseSqlServer(connectionString));
 
 // Register the interface and its implementation
-services.AddTransient<IEmailService, EmailService>();
-services.AddTransient<ISMSService, SMSService>();
-
+builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.AddTransient<ISMSService, SMSService>();
 // Register the consumer class
-services.AddTransient<MessageController>();
+builder.Services.AddTransient<MessageController>();
 
 // Register the app runner
-services.AddTransient<RunApp>();
+builder.Services.AddTransient<RunApp>();
 
-// 2. Resolve and run
-var serviceProvider = services.BuildServiceProvider();
-var app = serviceProvider.GetRequiredService<RunApp>();
+// 2. Build the host
+using var host = builder.Build();
 
-// 3. Run the app
+// 3. Resolve and run
+var app = host.Services.GetRequiredService<RunApp>();
 app.Run();
