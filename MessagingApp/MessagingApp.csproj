@@ -21,4 +21,8 @@
   </None>
 </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Migrations\Scripts\BackfillCountry.sql" />
+  </ItemGroup>
+
 </Project>
