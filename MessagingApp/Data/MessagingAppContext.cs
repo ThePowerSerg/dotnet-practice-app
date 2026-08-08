@@ -3,15 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MessagingApp.Data
 {
-    public class MessagingAppContext : DbContext
+    public class MessagingAppContext(DbContextOptions options) : DbContext(options)
     {
-        private readonly DbContextOptions _options;
-        
-        public DbSet<UserProfile> userProfiles { get; set; }
-
-        public MessagingAppContext(DbContextOptions options)
-        {
-            this._options = options;
-        }
+        public DbSet<UserProfile> UserProfiles { get; set; }
     }
 }
