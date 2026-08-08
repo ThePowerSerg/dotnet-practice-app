@@ -30,10 +30,6 @@ builder.Services.AddTransient<RunApp>();
 // 2. Build the host
 using var host = builder.Build();
 
-// Seed the database - run manually as needed, comment out otherwise
-using var seedContext = new MessagingAppContextFactory().CreateDbContext([]);
-DbInitializer.SeedData(seedContext);
-
 // 3. Resolve and run
 var app = host.Services.GetRequiredService<RunApp>();
 app.Run();

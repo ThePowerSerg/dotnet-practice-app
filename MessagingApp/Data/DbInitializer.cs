@@ -5,12 +5,14 @@ namespace MessagingApp.Data
 {
     public static class DbInitializer
     {
-        public static void SeedData(MessagingAppContext context)
+        // Registered via UseSeeding on MessagingAppContextFactory, so this only
+        // runs when triggered by an EF command (e.g. `dotnet ef database update`)
+        // or Database.EnsureCreated() - never on a plain `dotnet run`.
+        public static void SeedData(DbContext context, bool _)
         {
-            // Applies any pending migrations, creating the database/table if needed
-            context.Database.Migrate();
+            var messagingAppContext = (MessagingAppContext)context;
 
-            if (context.UserProfiles.Any()) return;
+            if (messagingAppContext.UserProfiles.Any()) return;
 
             var userProfiles = new List<UserProfile>()
             {
@@ -26,9 +28,9 @@ namespace MessagingApp.Data
                 }
             };
 
-            context.UserProfiles.AddRange(userProfiles);
+            messagingAppContext.UserProfiles.AddRange(userProfiles);
 
-            context.SaveChanges();
+            messagingAppContext.SaveChanges();
         }
     }
 }

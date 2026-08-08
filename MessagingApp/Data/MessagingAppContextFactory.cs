@@ -23,7 +23,9 @@ namespace MessagingApp.Data
                     + "'DefaultConnection' not found.");
 
             var optionsBuilder = new DbContextOptionsBuilder<MessagingAppContext>();
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder
+                .UseSqlServer(connectionString)
+                .UseSeeding(DbInitializer.SeedData);
 
             return new MessagingAppContext(optionsBuilder.Options);
         }
