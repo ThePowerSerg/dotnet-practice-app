@@ -1,6 +1,6 @@
 namespace MessagingApp.Data
 {
-    public class MemoryContext
+    public class IUserProfileRepository
     {
         
     }
