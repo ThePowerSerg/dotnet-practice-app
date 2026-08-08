@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MessagingApp.Data.Migrations
 {
     [DbContext(typeof(MessagingAppContext))]
-    [Migration("20260808160642_InitialMigration")]
+    [Migration("20260808173520_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -44,7 +44,7 @@ namespace MessagingApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("userProfiles");
+                    b.ToTable("UserProfiles");
                 });
 #pragma warning restore 612, 618
         }

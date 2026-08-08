@@ -41,7 +41,7 @@ namespace MessagingApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("userProfiles");
+                    b.ToTable("UserProfiles");
                 });
 #pragma warning restore 612, 618
         }

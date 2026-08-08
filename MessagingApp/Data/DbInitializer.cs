@@ -1,11 +1,17 @@
 using MessagingApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MessagingApp.Data
 {
-    public class DbInitializer
+    public static class DbInitializer
     {
-        public void CreateUserProfileList()
+        public static void SeedData(MessagingAppContext context)
         {
+            // Applies any pending migrations, creating the database/table if needed
+            context.Database.Migrate();
+
+            if (context.UserProfiles.Any()) return;
+
             var userProfiles = new List<UserProfile>()
             {
                 new() {
@@ -14,12 +20,17 @@ namespace MessagingApp.Data
                     Email = "sergferreira81@gmail.com",
                     PhoneNumber = "7817332393"
                 },
-                new() { 
+                new() {
                     Id = 2,
                     UserName = "sergiof810",
                     Email = "sergiof810@outlook.com",
-                    PhoneNumber = "7817332393"}
+                    PhoneNumber = "7817332393"
+                }
             };
+
+            context.UserProfiles.AddRange(userProfiles);
+
+            context.SaveChanges();
         }
     }
 }
