@@ -4,9 +4,9 @@ namespace MessagingApp.Data
 {
     public class DbInitializer
     {
-        public void CreateUserList()
+        public void CreateUserProfileList()
         {
-            var UserList = new List<UserProfile>()
+            var userProfiles = new List<UserProfile>()
             {
                 new() {
                     Id = 1,
