@@ -15,6 +15,7 @@ namespace MessagingApp.Data
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false)
+                .AddUserSecrets<MessagingAppContextFactory>(optional: true)
                 .Build();
 
             var connectionString =

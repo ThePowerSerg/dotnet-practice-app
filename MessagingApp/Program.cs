@@ -10,6 +10,11 @@ using Microsoft.Extensions.Configuration;
 // 1. Set up the DI container
 var builder = Host.CreateApplicationBuilder(args);
 
+// Layer in user-secrets explicitly (rather than relying on the Development-only
+// auto-load behavior) so ConnectionStrings:DefaultConnection - deliberately left
+// blank in appsettings.json - resolves from the secret store instead.
+builder.Configuration.AddUserSecrets<Program>();
+
 var connectionString =
     builder.Configuration.GetConnectionString("DefaultConnection")
         ?? throw new InvalidOperationException("Connection string"
@@ -31,5 +36,8 @@ builder.Services.AddTransient<RunApp>();
 using var host = builder.Build();
 
 // 3. Resolve and run
-var app = host.Services.GetRequiredService<RunApp>();
+// RunApp now depends on MessagingAppContext, which AddDbContext registers as
+// scoped - resolve it from an explicit scope rather than the root provider.
+using var scope = host.Services.CreateScope();
+var app = scope.ServiceProvider.GetRequiredService<RunApp>();
 app.Run();
