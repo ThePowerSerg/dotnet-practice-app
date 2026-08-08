@@ -19,12 +19,14 @@ namespace MessagingApp.Data
                 new() {
                     UserName = "sergferreira81",
                     Email = "sergferreira81@gmail.com",
-                    PhoneNumber = "7817332393"
+                    PhoneNumber = "7817332393",
+                    Country = "United States"
                 },
                 new() {
                     UserName = "sergiof810",
                     Email = "sergiof810@outlook.com",
-                    PhoneNumber = "7817332393"
+                    PhoneNumber = "7817332393",
+                    Country = "United States"
                 }
             };
 
