@@ -15,12 +15,12 @@ namespace MessagingApp.Controllers
         // Get By ID
         public UserProfile GetUserProfileByID(int id)
         {
-            var userProfile = context.UserProfiles.FirstOrDefault(x => x.Id == id) ?? throw new NotImplementedException();
+            var userProfile = context.UserProfiles.FirstOrDefault(x => x.Id == id) ?? throw new NotImplementedException("Id Not Found");
             return userProfile;
         }
 
-        // Add new 
+        // Add new user
 
-        // Update
+        // Update user
     }
 }

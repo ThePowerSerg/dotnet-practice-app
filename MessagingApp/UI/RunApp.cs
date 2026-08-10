@@ -1,5 +1,4 @@
 using MessagingApp.Controllers;
-using Microsoft.Identity.Client;
 
 namespace MessagingApp.UI
 {
@@ -7,9 +6,18 @@ namespace MessagingApp.UI
     {
         public void Run()
         {
+            Console.Write("Please enter a user ID from 1 to 2: ");
+            var promptId = Console.ReadLine();
 
-            // Get User
-            var user = userProfileController.GetUserProfileByID(1);
+            bool convert = int.TryParse(promptId, out int id);
+
+            if (!convert)
+            {
+                Console.WriteLine("Invalid user ID");
+                return;
+            }
+
+            var user = userProfileController.GetUserProfileByID(id);
 
             if (user is null)
             {
