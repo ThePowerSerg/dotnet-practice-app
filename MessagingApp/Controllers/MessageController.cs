@@ -3,18 +3,9 @@ using MessagingApp.Services;
 
 namespace MessagingApp.Controllers
 {
-    // consuming class - defines the implementation
-    public class MessageController
+    // consuming class - coordinates which services will be consumed by the UI and communicates with the UI. 
+    public class MessageController(IEmailService emailService, ISMSService sMSService)
     {
-        private readonly IEmailService emailService;
-        private readonly ISMSService sMSService;
-
-        public MessageController(IEmailService emailService, ISMSService sMSService)
-        {
-            this.emailService = emailService;
-            this.sMSService = sMSService;
-        }
-
         public void SendEmail(UserProfile user, string message)
         {
             emailService.SendEmail(user, message);

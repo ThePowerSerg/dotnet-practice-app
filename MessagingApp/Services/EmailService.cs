@@ -2,7 +2,7 @@ using MessagingApp.Models;
 
 namespace MessagingApp.Services
 {
-    // Defines how the email is going to be sent
+    // Defines how the email is going to be sent - Implementation
     public class EmailService : IEmailService
     {
         // Implements the SendMessage method
