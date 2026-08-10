@@ -1,11 +1,11 @@
 ﻿using MessagingApp.Controllers;
 using MessagingApp.Data;
 using MessagingApp.Services;
-using MessagingApp.Views;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using MessagingApp.UI;
 
 // 1. Set up the DI container
 var builder = Host.CreateApplicationBuilder(args);
@@ -28,6 +28,7 @@ builder.Services.AddTransient<IEmailService, EmailService>();
 builder.Services.AddTransient<ISMSService, SMSService>();
 // Register the consumer class
 builder.Services.AddTransient<MessageController>();
+builder.Services.AddTransient<UserProfileController>();
 
 // Register the app runner
 builder.Services.AddTransient<RunApp>();
