@@ -1,8 +1,12 @@
+using MessagingAPI.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+// Add Book service
+builder.Services.AddTransient<IBookService, BookService>();
 
 var app = builder.Build();
 

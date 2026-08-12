@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MessagingAPI\MessagingAPI.csproj" />
     <ProjectReference Include="..\MessagingApp\MessagingApp.csproj" />
   </ItemGroup>
 
