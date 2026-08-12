@@ -1,6 +1,6 @@
-using MessagingApp.Models;
+using MessagingAPI.Models;
 
-namespace MessagingApp.Services
+namespace MessagingAPI.Services
 {
     // Abstraction layer used for DI registration, tests, etc. 
     public interface IEmailService

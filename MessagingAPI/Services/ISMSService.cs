@@ -1,6 +1,6 @@
-using MessagingApp.Models;
+using MessagingAPI.Models;
 
-namespace MessagingApp.Services
+namespace MessagingAPI.Services
 {
     public interface ISMSService
     {

@@ -1,7 +1,7 @@
-using MessagingApp.Models;
-using MessagingApp.Services;
+using MessagingAPI.Models;
+using MessagingAPI.Services;
 
-namespace MessagingApp.Controllers
+namespace MessagingAPI.Controllers
 {
     // consuming class - coordinates which services will be consumed by the UI and communicates with the UI. 
     public class MessageController(IEmailService emailService, ISMSService sMSService)

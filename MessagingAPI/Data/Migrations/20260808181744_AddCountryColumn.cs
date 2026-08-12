@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace MessagingApp.Data.Migrations
+namespace MessagingAPI.Data.Migrations
 {
     /// <inheritdoc />
     public partial class AddCountryColumn : Migration

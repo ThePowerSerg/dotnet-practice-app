@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace MessagingApp.Data.Migrations
+namespace MessagingAPI.Data.Migrations
 {
     /// <inheritdoc />
     // Example of a bulk, set-based backfill: derives UserProfiles.Country
@@ -18,7 +18,7 @@ namespace MessagingApp.Data.Migrations
         {
             var assembly = Assembly.GetExecutingAssembly();
             using var stream = assembly.GetManifestResourceStream(
-                "MessagingApp.Data.Migrations.Scripts.BackfillCountry.sql");
+                "MessagingAPI.Data.Migrations.Scripts.BackfillCountry.sql");
             using var reader = new StreamReader(stream!);
             var sql = reader.ReadToEnd();
 

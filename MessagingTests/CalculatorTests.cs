@@ -1,4 +1,4 @@
-﻿using MessagingApp.Services;
+﻿using MessagingAPI.Services;
 
 namespace MessagingTests;
 

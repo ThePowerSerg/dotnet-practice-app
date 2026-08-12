@@ -1,6 +1,6 @@
 using System.Collections;
 
-namespace MessagingApp.Services
+namespace MessagingAPI.Services
 {
     public class CalculatorService : IEnumerable<object[]>
     {

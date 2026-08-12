@@ -1,6 +1,6 @@
-using MessagingApp.Models;
+using MessagingAPI.Models;
 
-namespace MessagingApp.Services
+namespace MessagingAPI.Services
 {
     // Defines how the email is going to be sent - Implementation
     public class EmailService : IEmailService
