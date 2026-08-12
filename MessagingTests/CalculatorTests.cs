@@ -44,6 +44,26 @@ public class CalculatorTests
 
     // Test Add
     [Theory]
+    [MemberData(nameof(CalculatorService.Data), MemberType = typeof(CalculatorService))]
+    public void AddMemberDataTest(int expectedValue, int x, int y)
+    {
+        var calculator = new CalculatorService();
+        var result = calculator.Add(x, y);
+        Assert.Equal(expectedValue, result);
+    }
+
+    // Test Add
+    [Theory(Skip = "Obsolete logic")]
+    [ClassData(typeof(CalculatorService))]
+    public void AddClassDataTest(int expectedValue, int x, int y)
+    {
+        var calculator = new CalculatorService();
+        var result = calculator.Add(x, y);
+        Assert.Equal(expectedValue, result);
+    }
+
+    // Test Add
+    [Theory]
     [InlineData(8, 8, 8)]
     public void AverageTest(int expectedValue, int x, int y)
     {
