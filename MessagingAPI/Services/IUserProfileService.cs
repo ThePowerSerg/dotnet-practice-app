@@ -9,6 +9,6 @@ namespace MessagingAPI.Services
         Task<IEnumerable<UserProfile>> GetUserProfiles();
 
         // Get By Id
-        UserProfile GetUserProfileById(int Id);
+        Task<UserProfile> GetUserProfileById(int Id);
     }
 }

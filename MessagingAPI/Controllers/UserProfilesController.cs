@@ -16,6 +16,14 @@ namespace MessagingAPI.Controllers
             return Ok(userProfiles);
         }
 
+        // GET api/userprofiles/1
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<IEnumerable<UserProfile>>> GetById(int Id)
+        {
+            var userProfile = await userProfileService.GetUserProfileById(Id);
+            return Ok(userProfile);
+        }
+
         // Add User
 
         // Update User

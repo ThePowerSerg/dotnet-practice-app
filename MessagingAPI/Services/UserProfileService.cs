@@ -11,9 +11,9 @@ namespace MessagingAPI.Services
         {
             return await context.UserProfiles.ToListAsync();
         }
-        public UserProfile GetUserProfileById(int Id)
+        public async Task<UserProfile> GetUserProfileById(int Id)
         {
-            return context.UserProfiles.FirstOrDefault(p => p.Id == Id) ?? throw new KeyNotFoundException($"User profile with ID {Id} was not found.");
+            return await context.UserProfiles.FirstOrDefaultAsync(p => p.Id == Id) ?? throw new KeyNotFoundException($"User profile with ID {Id} was not found.");
         }
 
     }
