@@ -18,10 +18,9 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-
 // Register the interface and its implementation
-builder.Services.AddTransient<IEmailService, EmailService>();
-builder.Services.AddTransient<ISMSService, SMSService>();
+builder.Services.AddTransient<IUserProfileService, UserProfileService>();
+// Practice service 
 builder.Services.AddTransient<IBookService, BookService>();
 
 var app = builder.Build();
