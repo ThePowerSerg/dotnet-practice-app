@@ -11,12 +11,10 @@ namespace MessagingAPI.Services
         {
             return await context.UserProfiles.ToListAsync();
         }
-        public async Task<UserProfile?> GetUserProfileByIdAsync(int id)
-        {
-            return await context.UserProfiles
+        public Task<UserProfile?> GetUserProfileByIdAsync(int id) =>
+            context.UserProfiles
                 .AsNoTracking()
                 .FirstOrDefaultAsync(p => p.Id == id);
-        }
 
     }
 }
