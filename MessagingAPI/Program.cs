@@ -1,4 +1,3 @@
-using MessagingAPI.Contollers;
 using MessagingAPI.Data;
 using MessagingAPI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<MessagingApiContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+    .UseSeeding(DbInitializer.SeedData);
 });
 
 // Add services to the container.

@@ -6,7 +6,7 @@ namespace MessagingAPI.Services
     {
         IEnumerable<Book> GetBooks();
         Book AddBook(Book book);
-        Book GetBookById(Guid Id);
+        Book? GetBookById(Guid Id);
         void RemoveBook(Guid id);
     }
 }
