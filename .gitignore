@@ -480,7 +480,7 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
-MessagingApi/appsettings.json
-MessagingApi/Data/DbInitializer.cs
+MessagingAPI/appsettings.json
+MessagingAPI/Data/DbInitializer.cs
 
 *.dll
