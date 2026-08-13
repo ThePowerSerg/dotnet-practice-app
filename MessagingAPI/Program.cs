@@ -19,9 +19,9 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 // Register the interface and its implementation
-builder.Services.AddTransient<IUserProfileService, UserProfileService>();
+builder.Services.AddScoped<IUserProfileService, UserProfileService>();
 // Practice service 
-builder.Services.AddTransient<IBookService, BookService>();
+builder.Services.AddScoped<IBookService, BookService>();
 
 var app = builder.Build();
 

@@ -7,13 +7,15 @@ namespace MessagingAPI.Services
     // Implement service
     public class UserProfileService(MessagingApiContext context) : IUserProfileService
     {
-        public async Task<IEnumerable<UserProfile>> GetUserProfiles()
+        public async Task<IEnumerable<UserProfile>> GetUserProfilesAsync()
         {
             return await context.UserProfiles.ToListAsync();
         }
-        public async Task<UserProfile> GetUserProfileById(int Id)
+        public async Task<UserProfile?> GetUserProfileByIdAsync(int id)
         {
-            return await context.UserProfiles.FirstOrDefaultAsync(p => p.Id == Id) ?? throw new KeyNotFoundException($"User profile with ID {Id} was not found.");
+            return await context.UserProfiles
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.Id == id);
         }
 
     }

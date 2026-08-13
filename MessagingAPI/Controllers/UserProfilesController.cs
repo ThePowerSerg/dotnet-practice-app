@@ -12,15 +12,18 @@ namespace MessagingAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserProfile>>> Get()
         {
-            var userProfiles = await userProfileService.GetUserProfiles();
+            var userProfiles = await userProfileService.GetUserProfilesAsync();
             return Ok(userProfiles);
         }
 
         // GET api/userprofiles/1
-        [HttpGet("{Id}")]
-        public async Task<ActionResult<IEnumerable<UserProfile>>> GetById(int Id)
+        [HttpGet("{id:int:min(1)}")]
+        public async Task<ActionResult<UserProfile>> GetById(int Id)
         {
-            var userProfile = await userProfileService.GetUserProfileById(Id);
+            var userProfile = await userProfileService.GetUserProfileByIdAsync(Id);
+
+            if (userProfile == null) return NotFound();
+
             return Ok(userProfile);
         }
 

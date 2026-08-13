@@ -6,9 +6,9 @@ namespace MessagingAPI.Services
     public interface IUserProfileService
     {
         // Get all
-        Task<IEnumerable<UserProfile>> GetUserProfiles();
+        Task<IEnumerable<UserProfile>> GetUserProfilesAsync();
 
         // Get By Id
-        Task<UserProfile> GetUserProfileById(int Id);
+        Task<UserProfile?> GetUserProfileByIdAsync(int id);
     }
 }
