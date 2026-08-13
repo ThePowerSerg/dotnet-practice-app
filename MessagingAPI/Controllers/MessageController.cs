@@ -3,6 +3,8 @@ using MessagingAPI.Services;
 
 namespace MessagingAPI.Controllers
 {
+    // TODO: Move to front-end
+    
     // consuming class - coordinates which services will be consumed by the UI and communicates with the UI. 
     public class MessageController(IEmailService emailService, ISMSService sMSService)
     {
