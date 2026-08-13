@@ -1,4 +1,4 @@
-using MessagingAPI.Models;
+using MessagingAPI.Dtos;
 
 namespace MessagingAPI.Services
 {
@@ -6,9 +6,9 @@ namespace MessagingAPI.Services
     public interface IUserProfileService
     {
         // Get all
-        Task<IEnumerable<UserProfile>> GetUserProfilesAsync();
+        Task<IEnumerable<UserProfileDto>> GetUserProfilesAsync();
 
         // Get By Id
-        Task<UserProfile?> GetUserProfileByIdAsync(int id);
+        Task<UserProfileDto?> GetUserProfileByIdAsync(int id);
     }
 }

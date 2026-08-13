@@ -1,4 +1,4 @@
-using MessagingAPI.Models;
+using MessagingAPI.Dtos;
 using MessagingAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +10,7 @@ namespace MessagingAPI.Controllers
     {
         // GET api/UserProfile
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserProfile>>> Get()
+        public async Task<ActionResult<IEnumerable<UserProfileDto>>> Get()
         {
             var userProfiles = await userProfileService.GetUserProfilesAsync();
             return Ok(userProfiles);
@@ -18,9 +18,9 @@ namespace MessagingAPI.Controllers
 
         // GET api/userprofiles/1
         [HttpGet("{id:int:min(1)}")]
-        public async Task<ActionResult<UserProfile>> GetById(int Id)
+        public async Task<ActionResult<UserProfileDto>> GetById(int id)
         {
-            var userProfile = await userProfileService.GetUserProfileByIdAsync(Id);
+            var userProfile = await userProfileService.GetUserProfileByIdAsync(id);
 
             if (userProfile == null) return NotFound();
 
