@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // TODO: setup secrets
 //builder.Configuration.AddUserSecrets<Program>();
 
+// register DbContext and define options
 builder.Services.AddDbContext<MessagingApiContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
