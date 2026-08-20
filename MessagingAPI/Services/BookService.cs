@@ -13,6 +13,7 @@ namespace MessagingAPI.Services
         public Book AddBook(Book newBook)
         {
             context.Books.Add(newBook);
+            context.SaveChanges();
             return newBook;
         }
 
